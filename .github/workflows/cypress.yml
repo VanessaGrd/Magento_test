@@ -1,5 +1,6 @@
 name: build-test-deploy
-on:   push:
+on:   
+  push:
     branches: ["main"]
   workflow_dispatch:
 jobs: 
@@ -8,11 +9,10 @@ jobs:
     steps:
       - name: clone project
         uses: actions/checkout@v4
-      # Install npm dependencies, cache them correctly
-      # and run all Cypress tests
+  
       - name: install dependencies 
-      uses: npm i
-      
+        uses: npm i
+
       - name: Cypress run
         uses: cypress-io/github-action@v6
        
