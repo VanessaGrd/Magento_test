@@ -18,11 +18,6 @@ describe('selected tops', () => {
     cy.get(".update-cart-item").click()
     cy.get("#top-cart-btn-checkout").click()
     cy.get("#customer-email").type("vanessa.test@gmail.com")
-    cy.get("#LTAWV09.input-text").type("Vanessa")
  
-
-
-
-
   })
 })
