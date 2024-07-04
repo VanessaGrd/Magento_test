@@ -1,6 +1,6 @@
 name: build-test-deploy
-on:   
-  push:
+on: 
+  push :
     branches: ["main"]
   workflow_dispatch:
 jobs: 
@@ -10,9 +10,6 @@ jobs:
       - name: clone project
         uses: actions/checkout@v4
   
-      - name: install dependencies 
-        uses: npm i
-
       - name: Cypress run
         uses: cypress-io/github-action@v6
        
