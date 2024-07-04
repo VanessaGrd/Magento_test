@@ -1,15 +1,18 @@
 name: build-test-deploy
-on: push
+on:   push:
+    branches: ["main"]
+  workflow_dispatch:
 jobs: 
  cypress-run:
     runs-on: ubuntu-22.04
     steps:
-      - name: Checkout
+      - name: clone project
         uses: actions/checkout@v4
       # Install npm dependencies, cache them correctly
       # and run all Cypress tests
+      - name: install dependencies 
+      uses: npm i
+      
       - name: Cypress run
         uses: cypress-io/github-action@v6
-        with:
-          build: npm run build
-          start: npm start
+       
