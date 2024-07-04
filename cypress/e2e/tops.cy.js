@@ -1,0 +1,35 @@
+describe('selected tops', () => {
+  it('select', () => {
+    cy.visit('https://magento.softwaretestingboard.com/')
+    cy.get('#ui-id-4').trigger('mouseover')
+    cy.get(".level1").first().click()
+    cy.url().should("include","women/tops-women.html")
+    cy.get(".page-title").should("contain", "Tops")
+    cy.get(".product-image-photo").first().click()
+    cy.url().should("include", "breathe-easy-tank.html")
+    cy.get(".page-title").should("contain", "Breathe-Easy Tank")
+    cy.get("#option-label-size-143-item-166").click().should("have.css","backgroundColor","rgb(255, 255, 255)")
+    cy.get("#option-label-color-93-item-57").click()  
+    cy.get("#product-addtocart-button").click()
+    cy.wait(5000)
+    cy.get(".action.showcart").click()
+    cy.get(".item-qty.cart-item-qty").clear().type("2")
+    cy.get(".update-cart-item").click()
+    cy.get("#top-cart-btn-checkout").click()
+    cy.get("#customer-email").type("vanessa.test@gmail.com")
+    cy.get("#LTAWV09.input-text").type("Vanessa")
+    cy.get("#B3AGBIE").type("Test")
+    cy.get("#HWOY0DK").type("WCS")
+    cy.get("#ND317DM").type("17 rue Delandine")
+    cy.get("#HPGE31R").type("Lyon")
+    cy.get("#KUGRE8A").select("France")
+    cy.get("#QW20RCL").select("Rhône")
+    cy.get("#CEUH7GS").type("69002")
+    cy.get("#O0FJ8VJ").type("0682598565")
+    cy.get(".button.action.continue.primary").click()
+
+
+
+
+  })
+})
